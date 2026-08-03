@@ -156,7 +156,7 @@ export default async function HomePage() {
                     <span className="text-xl font-extrabold text-slate-900">${gear.dailyRate}</span>
                     <span className="text-xs text-slate-500">/day</span>
                   </div>
-                  <Link
+                  <Link 
                     href={`/gear/${gear._id || gear.id}`}
                     className="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-xl hover:bg-blue-700 transition"
                   >
