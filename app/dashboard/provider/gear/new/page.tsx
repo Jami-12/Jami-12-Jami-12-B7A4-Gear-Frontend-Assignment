@@ -29,8 +29,7 @@ export default function AddGearPage() {
       try {
         setFetchingCategories(true);
         const baseUrl =
-          process.env.BACKEND_BASE_API ||
-          "http://localhost:5000/api";
+          process.env.BACKEND_API_URL || "http://localhost:5000/api";
 
         const cleanBaseUrl = baseUrl.replace(/\/$/, "");
         const res = await fetch(`${cleanBaseUrl}/categories`);
@@ -68,7 +67,7 @@ export default function AddGearPage() {
       formData.append("image", file);
       const res = await fetch(
         "https://api.imgbb.com/1/upload?key=6d207e02198a847aa98d0a2a901485a5",
-        { method: "POST", body: formData }
+        { method: "POST", body: formData },
       );
       const data = await res.json();
       return data?.data?.url || "";

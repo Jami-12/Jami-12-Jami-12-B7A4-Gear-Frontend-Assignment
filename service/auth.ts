@@ -6,7 +6,6 @@ import { revalidatePath } from "next/cache";
 // URL এর শেষে বাড়তি / থাকলে তা সরিয়ে সেফ URL তৈরি করা
 const getBaseUrl = () => {
   const url =
-    process.env.NEXT_PUBLIC_BACKEND_API_URL ||
     process.env.BACKEND_API_URL ||
     "http://localhost:5000/api";
   return url.replace(/\/$/, "");
@@ -36,7 +35,6 @@ export async function loginAction(credentials: {
         path: "/",
       });
 
-      // 🔴 মূল সমাধান: লগইন করার পর পুরো Layout রিভ্যালিডেট করবে
       revalidatePath("/", "layout");
     }
 
